@@ -22,7 +22,22 @@
                 <img class="w-24" src="{{asset('/images/STAFlogoTopSq.png')}}" alt="" />
             </a>
             <ul class="flex space-x-6 mr-6 text-lg">
-
+                @auth
+                <li>
+                    <span class="font-bold uppercase text-blue-800"> Welcome {{auth()->user()->name}} </span>
+                </li>
+                <li>
+                    <a href="/activities/manage" class="hover:text-blue-800 text-purple-400"><i class="fa-solid fa-gear"></i> Manage Listings</a>
+                </li>
+                <li>
+                    <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button class="hover:text-blue-800 text-purple-400" type="submit" >
+                        <i class="fa-solid fa-door-closed" ></i> Logout
+                    </button>
+                    </form>
+                </li>
+                @else
                 <li>
                     <span class="font-bold uppercase">
                     </span>
@@ -32,6 +47,7 @@
                 <li>
                     <a href="/login" class="hover:text-blue-800 text-purple-400"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
                 </li>
+                @endauth
             </ul>
         </nav>
 

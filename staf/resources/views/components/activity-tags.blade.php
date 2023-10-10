@@ -10,32 +10,3 @@
     </li>
     @endforeach
 </ul>
-
-
-        {{-- <a href="javascript:void(0);" onclick="addTagToSearch('{{$tag}}')">{{$tag}}</a>
-    </li>
-    @endforeach
-</ul>
-
-<script>
-    function addTagToSearch(tag) {
-        // Get the current search term in the search bar
-        let currentSearch = document.getElementById('search_display').value;
-
-        // If there's a current search, add a space before adding the tag
-        if (currentSearch !== '') {
-            currentSearch += ' ';
-        }
-
-        // Append the clicked tag to the current search
-        currentSearch += tag;
-
-        // Update the search bar with the new search term
-        document.getElementById('search_display').value = currentSearch;
-    }
-</script> --}}
-
-
-<!-- resources/views/components/activity-tags.blade.php -->
-
-

@@ -20,26 +20,6 @@ use Monolog\Handler\WebRequestRecognizerTrait;
 |
 */
 
-//update - Update activity
-//destroy - Delete activity
-
-
-// Route::get('/welcome', function() {
-//     return view('welcome');
-// });
-
-
-// Route::get('/register', function() {
-//     return view('register');
-// });
-
-// Route::get('/login', function() {
-//     return view('login');
-// });
-
-// Route::get('/show', function() {
-//     return view('show');
-// });
 
 // index - Show All Activities (page d'accueil)
 Route::get('/', [ActivityController::class, 'index']);
@@ -55,7 +35,29 @@ Route::get('/activities/create', [ActivityController::class, 'create']);
 //store - store new activity (save)
 Route::post('/activities', [ActivityController::class, 'store']);
 
+//Show Edit Form
+Route::get('/activities/{activity}/edit', [ActivityController::class, 'edit']);
 
+//Edit = Update Activity
+Route::put('/activities/{activity}', [ActivityController::class, 'update']);
+
+//Delete Activity
+Route::delete('/activities/{activity}', [ActivityController::class, 'destroy']);
 
 // show - Show Single Activity
 Route::get('/activities/{activity}', [ActivityController::class, 'show']);
+
+//Show Register/Create Form
+Route::get('/register', [UserController::class, 'create']);
+
+//Create New User
+Route::post('/users', [UserController::class, 'store']);
+
+//Log User out
+Route::post('/logout', [UserController::class, 'logout'] );
+
+//Show Login Form
+Route::get('/login', [UserController::class, 'login']);
+
+//Log In User
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
